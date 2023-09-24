@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, tags, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
@@ -45,8 +45,28 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 0 0 0.5em 0;
 			}
 			.date {
+				color: rgb(var(--gray));
+			}
+			.tags {
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
+			}
+			.tags ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			.tags ul li {
+				display: inline;
+				padding: .2em .2em;
+			}
+			.tags ul li a {
+				color: rgb(var(--gray));
+				text-decoration: none;
+			}
+			.tags ul li a:hover {
+				color: rgb(var(--gray));
+				text-decoration: underline;
 			}
 			.last-updated-on {
 				font-style: italic;
@@ -74,6 +94,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							}
 						</div>
 						<h1>{title}</h1>
+						<div class="tags">
+							<ul>
+							{
+								tags ? tags.sort().map((tag) => (
+									<li>
+										<a href={`/blog/tags/${tag}/`}>#{tag}</a>
+									</li>
+								)) : null
+							}
+							</ul>
+						</div>
 						<hr />
 					</div>
 					<slot />
