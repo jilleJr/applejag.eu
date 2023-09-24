@@ -36,7 +36,7 @@ export async function GET(context) {
 					width="${dimensions.width}"
 					height="${dimensions.height}"
 					medium="image"
-					url="${context.site + heroImage}" />
+					url="${context.site + heroImage}"
 				/>`;
 			}
 			return feedItem;
