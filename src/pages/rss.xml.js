@@ -1,5 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import mime from 'mime-types';
+import sizeOf from 'image-size';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export async function GET(context) {
@@ -17,19 +19,27 @@ export async function GET(context) {
 			rel="self"
 			type="application/rss+xml"
 		/>`,
-		items: posts.map((post) => ({
-			title: post.data.title,
-			pubDate: post.data.pubDate,
-			description: post.data.description,
-			categories: post.data.tags,
-			link: `/blog/${post.slug}/`,
-			customData: `<media:content
-				type="image/${post.data.heroImage.format == "jpg" ? "jpeg" : "png"}"
-				width="${post.data.heroImage.width}"
-				height="${post.data.heroImage.height}"
-				medium="image"
-				url="${context.site + post.data.heroImage.src}" />
-			/>`,
-		})),
+		items: posts.map((post) => {
+			/** @type {import("@astrojs/rss").RSSFeedItem} */
+			const feedItem = {
+				title: post.data.title,
+				pubDate: post.data.pubDate,
+				description: post.data.description,
+				categories: post.data.tags,
+				link: `/blog/${post.slug}/`,
+			}
+			const heroImage = post.data.heroImage;
+			if (heroImage) {
+				const dimensions = sizeOf('public/'+heroImage);
+				feedItem.customData = `<media:content
+					type="${mime.lookup(heroImage)}"
+					width="${dimensions.width}"
+					height="${dimensions.height}"
+					medium="image"
+					url="${context.site + heroImage}" />
+				/>`;
+			}
+			return feedItem;
+		}),
 	});
 }
