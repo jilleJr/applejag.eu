@@ -33,4 +33,4 @@ Ah I love myself.
 
 Cheerio noobnuts
 
-> _This post was originally posted (by me) here: <https://itsa-me-jag.tumblr.com/post/172209611102/making-a-compiler-ep-3-expression-compilation>_
+> *This post was originally posted (by me) here: <https://itsa-me-jag.tumblr.com/post/172209611102/making-a-compiler-ep-3-expression-compilation>*
