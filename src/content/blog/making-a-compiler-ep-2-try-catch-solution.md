@@ -58,6 +58,6 @@ So worth tho. Still proud.
 
 To compensate for my derp tho, I give you derp gif
 
-![derpy](/blog/making-a-compiler-ep-2-try-catch-solution/tumblrinlinep605kyabya1vn9t13250.gif)
+![derpy](/blog/making-a-compiler-ep-2-try-catch-solution/tumblrinlinep605kyabya1vn9t13250.webp)
 
 > *This post was originally posted (by me) here: <https://itsa-me-jag.tumblr.com/post/172140829137/making-a-compiler-ep-2-try-catch-solution>*
