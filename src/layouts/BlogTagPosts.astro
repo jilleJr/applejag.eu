@@ -1,7 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	tag?: string;
@@ -12,7 +12,10 @@ const { tag } = Astro.props;
 
 <html lang="en">
 	<head>
-		<BaseHead title={`Tag #${tag}`} description={`Posts with the tag #${tag}`} />
+		<BaseHead
+			title={`Tag #${tag}`}
+			description={`Posts with the tag #${tag}`}
+		/>
 		<style>
 			main {
 				width: calc(100% - 2em);

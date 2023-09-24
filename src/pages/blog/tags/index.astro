@@ -1,34 +1,33 @@
 ---
-import BaseHead from '../../../components/BaseHead.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseHead from "../../../components/BaseHead.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-type Post = CollectionEntry<'blog'>;
+type Post = CollectionEntry<"blog">;
 
 interface Tag {
-    name: string;
-    posts: Post[];
+	name: string;
+	posts: Post[];
 }
 
 async function getTags() {
-    const posts = await getCollection('blog');
-    const tagsMap: Record<string, Tag> = {};
-    for (const post of posts) {
-        for (const tag of post.data.tags) {
-            const tagObj = tagsMap[tag] || {name: tag, posts: []};
-            tagObj.posts.push(post);
-            tagsMap[tag] = tagObj;
-        }
-    }
-    const tags = Object.values(tagsMap);
-    tags.sort((a, b) => a.name.localeCompare(b.name));
-    return tags;
+	const posts = await getCollection("blog");
+	const tagsMap: Record<string, Tag> = {};
+	for (const post of posts) {
+		for (const tag of post.data.tags) {
+			const tagObj = tagsMap[tag] || { name: tag, posts: [] };
+			tagObj.posts.push(post);
+			tagsMap[tag] = tagObj;
+		}
+	}
+	const tags = Object.values(tagsMap);
+	tags.sort((a, b) => a.name.localeCompare(b.name));
+	return tags;
 }
 
 const tags = await getTags();
-
 ---
 
 <!doctype html>
@@ -122,7 +121,7 @@ const tags = await getTags();
 									<h4 class="tag-title">#{tag.name}</h4>
 									<p class="tag-subtitle">
 										{tag.posts.length}
-                                        {tag.posts.length === 1 ? " post" : " posts"}.
+										{tag.posts.length === 1 ? " post" : " posts"}.
 									</p>
 								</a>
 							</li>
