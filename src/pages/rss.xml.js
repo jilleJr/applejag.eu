@@ -8,9 +8,28 @@ export async function GET(context) {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		site: context.site,
+		xmlns: {
+			media: 'http://search.yahoo.com/mrss/',
+			atom: 'http://www.w3.org/2005/Atom',
+		},
+		customData: `<atom:link
+			href="${context.site}rss.xml"
+			rel="self"
+			type="application/rss+xml"
+		/>`,
 		items: posts.map((post) => ({
-			...post.data,
+			title: post.data.title,
+			pubDate: post.data.pubDate,
+			description: post.data.description,
+			categories: post.data.tags,
 			link: `/blog/${post.slug}/`,
+			customData: `<media:content
+				type="image/${post.data.heroImage.format == "jpg" ? "jpeg" : "png"}"
+				width="${post.data.heroImage.width}"
+				height="${post.data.heroImage.height}"
+				medium="image"
+				url="${context.site + post.data.heroImage.src}" />
+			/>`,
 		})),
 	});
 }
