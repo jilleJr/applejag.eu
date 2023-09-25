@@ -53,6 +53,11 @@ export async function GET(context) {
 					type: mimeType,
 					url: url,
 				};
+				feedItem.content = `<img
+					src="${url}"
+					width="${dimensions.width}"
+					height="${dimensions.height}"
+				/>`
 			}
 			return feedItem;
 		}),
