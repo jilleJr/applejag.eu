@@ -4,6 +4,7 @@ import mime from 'mime-types';
 import sizeOf from 'image-size';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import fs from 'fs';
+import { join } from 'path';
 
 /**
  *
@@ -20,7 +21,12 @@ export async function GET(context) {
 			media: 'http://search.yahoo.com/mrss/',
 			atom: 'http://www.w3.org/2005/Atom',
 		},
-		customData: `<atom:link
+		customData: `<image>
+			<url>${new URL('favicon.svg', context.site)}</url>
+			<title>${SITE_TITLE}</title>
+			<link>${context.site}</link>
+		</image>
+		<atom:link
 			href="${context.site}rss.xml"
 			rel="self"
 			type="application/rss+xml"
@@ -36,8 +42,8 @@ export async function GET(context) {
 			}
 			const heroImage = post.data.heroImage;
 			if (heroImage) {
-				const url = joinUrl(context.site.toString(), heroImage);
-				const path = joinUrl('public', heroImage);
+				const url = new URL(heroImage, context.site);
+				const path = join('public', heroImage);
 				const dimensions = sizeOf(path);
 				const mimeType = mime.lookup(heroImage);
 				feedItem.customData = `<media:content
@@ -51,7 +57,7 @@ export async function GET(context) {
 				feedItem.enclosure = {
 					length: stat.size,
 					type: mimeType,
-					url: url,
+					url: url.toString(),
 				};
 				feedItem.content = `<img
 					src="${url}"
@@ -62,19 +68,4 @@ export async function GET(context) {
 			return feedItem;
 		}),
 	});
-}
-
-/**
- * @param {string} a
- * @param {string} b
- * @returns {string}
- */
-function joinUrl(a, b) {
-	if (a.endsWith('/')) {
-		a = a.substring(0, a.length-1);
-	}
-	if (b.startsWith('/')) {
-		b = b.substring(1);
-	}
-	return `${a}/${b}`;
 }
