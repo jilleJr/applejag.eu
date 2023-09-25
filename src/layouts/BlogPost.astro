@@ -105,6 +105,7 @@ const { title, description, tags, pubDate, updatedDate, heroImage } =
 									tags
 										? tags.sort().map((tag) => (
 												<li>
+													{" "}
 													<a href={`/blog/tags/${tag}/`}>#{tag}</a>
 												</li>
 										  ))

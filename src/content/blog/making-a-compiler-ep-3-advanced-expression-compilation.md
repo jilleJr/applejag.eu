@@ -1,7 +1,7 @@
 ---
 title: 'Making a compiler (ep 3) advanced expression compilation'
 description: 'Tremendous amount of time have been spent solely for expression parsing, ‘cause I want that stupid shitpile to work in a proper way.'
-pubDate: '2018-05-24'
+pubDate: '2018-03-24'
 heroImage: /blog/making-a-compiler-ep-3-advanced-expression-compilation/tumblritsa-me-jag17220961110201.png
 tags:
   - adventiredOfG1ant

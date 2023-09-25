@@ -7,7 +7,13 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	(a, b) => {
+		const cmp = b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+		if (cmp !== 0) {
+			return cmp;
+		}
+		return b.data.title.localeCompare(a.data.title);
+	},
 );
 ---
 
