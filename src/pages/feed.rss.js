@@ -5,6 +5,11 @@ import sizeOf from 'image-size';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import fs from 'fs';
 
+/**
+ *
+ * @param {import("astro").APIContext} context
+ * @returns
+ */
 export async function GET(context) {
 	const posts = await getCollection('blog');
 	return rss({
@@ -31,7 +36,8 @@ export async function GET(context) {
 			}
 			const heroImage = post.data.heroImage;
 			if (heroImage) {
-				const path = 'public/'+heroImage
+				const url = joinUrl(context.site.toString(), heroImage);
+				const path = joinUrl('public', heroImage);
 				const dimensions = sizeOf(path);
 				const mimeType = mime.lookup(heroImage);
 				feedItem.customData = `<media:content
@@ -39,16 +45,31 @@ export async function GET(context) {
 					width="${dimensions.width}"
 					height="${dimensions.height}"
 					medium="image"
-					url="${context.site + heroImage}"
+					url="${url}"
 				/>`;
 				const stat = fs.statSync(path);
 				feedItem.enclosure = {
 					length: stat.size,
 					type: mimeType,
-					url: heroImage,
+					url: url,
 				};
 			}
 			return feedItem;
 		}),
 	});
+}
+
+/**
+ * @param {string} a
+ * @param {string} b
+ * @returns {string}
+ */
+function joinUrl(a, b) {
+	if (a.endsWith('/')) {
+		a = a.substring(0, a.length-1);
+	}
+	if (b.startsWith('/')) {
+		b = b.substring(1);
+	}
+	return `${a}/${b}`;
 }
