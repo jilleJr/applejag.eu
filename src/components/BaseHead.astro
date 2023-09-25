@@ -10,6 +10,7 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const rssURL = new URL('feed.rss', Astro.site);
 
 const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 ---
@@ -38,6 +39,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+<link rel="alternate" href={rssURL} type="application/rss+xml" title="RSS" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
