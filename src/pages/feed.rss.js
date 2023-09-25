@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import mime from 'mime-types';
 import sizeOf from 'image-size';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import fs from 'fs';
 
 export async function GET(context) {
 	const posts = await getCollection('blog');
@@ -30,14 +31,22 @@ export async function GET(context) {
 			}
 			const heroImage = post.data.heroImage;
 			if (heroImage) {
-				const dimensions = sizeOf('public/'+heroImage);
+				const path = 'public/'+heroImage
+				const dimensions = sizeOf(path);
+				const mimeType = mime.lookup(heroImage);
 				feedItem.customData = `<media:content
-					type="${mime.lookup(heroImage)}"
+					type="${mimeType}"
 					width="${dimensions.width}"
 					height="${dimensions.height}"
 					medium="image"
 					url="${context.site + heroImage}"
 				/>`;
+				const stat = fs.statSync(path);
+				feedItem.enclosure = {
+					length: stat.size,
+					type: mimeType,
+					url: heroImage,
+				};
 			}
 			return feedItem;
 		}),
