@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import FormattedDate from "../../../components/FormattedDate.astro";
-import BlogTagPosts from "../../../layouts/BlogTagPosts.astro";
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -21,9 +21,6 @@ const { posts } = Astro.props;
 ---
 
 <style>
-	main {
-		width: 960px;
-	}
 	ul {
 		display: flex;
 		flex-wrap: wrap;
@@ -46,11 +43,6 @@ const { posts } = Astro.props;
 	ul li a {
 		display: block;
 	}
-	.title {
-		margin: 0;
-		color: rgb(var(--black));
-		line-height: 1;
-	}
 	.date {
 		margin: 0;
 		color: rgb(var(--gray));
@@ -71,14 +63,9 @@ const { posts } = Astro.props;
 			text-align: center;
 		}
 	}
-	.prose {
-		width: 720px;
-		max-width: calc(100% - 2em);
-		margin: auto;
-		padding: 1em;
-		color: rgb(var(--gray-dark));
-	}
 	.title {
+		color: rgb(var(--black));
+		margin: 0;
 		margin-bottom: 1em;
 		padding: 1em 0;
 		text-align: center;
@@ -89,7 +76,7 @@ const { posts } = Astro.props;
 	}
 </style>
 
-<BlogTagPosts tag={tag}>
+<ArticleLayout title={`Tag #${tag}`} description={`Blog posts with the tag #${tag}`}>
 	<ul>
 		{
 			posts.map((post) => (
@@ -105,4 +92,4 @@ const { posts } = Astro.props;
 			))
 		}
 	</ul>
-</BlogTagPosts>
+</ArticleLayout>

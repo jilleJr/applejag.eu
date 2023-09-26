@@ -1,9 +1,6 @@
 ---
-import BaseHead from "../../../components/BaseHead.astro";
-import Header from "../../../components/Header.astro";
-import Footer from "../../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
 import { getCollection, type CollectionEntry } from "astro:content";
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
 
 type Post = CollectionEntry<"blog">;
 
@@ -30,106 +27,70 @@ async function getTags() {
 const tags = await getTags();
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.tag-title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.tag-subtitle {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<div class="prose">
-					<div class="title">
-						<h1>Tags</h1>
-						<hr />
-					</div>
-				</div>
-				<ul>
-					{
-						tags.map((tag) => (
-							<li>
-								<a href={`/blog/tags/${tag.name}/`}>
-									<h4 class="tag-title">#{tag.name}</h4>
-									<p class="tag-subtitle">
-										{tag.posts.length}
-										{tag.posts.length === 1 ? " post" : " posts"}.
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<ArticleLayout title="Tags" description="All the different tags used on the blog posts.">
+	<ul>
+		{
+			tags.map((tag) => (
+				<li>
+					<a href={`/blog/tags/${tag.name}/`}>
+						<h4 class="title">#{tag.name}</h4>
+						<p class="subtitle">
+							{tag.posts.length}
+							{tag.posts.length === 1 ? " post" : " posts"}.
+						</p>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</ArticleLayout>
+
+<style>
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	ul li {
+		width: calc(50% - 1rem);
+	}
+	ul li * {
+		text-decoration: none;
+		transition: 0.2s ease;
+	}
+	ul li img {
+		margin-bottom: 0.5rem;
+		border-radius: 12px;
+	}
+	ul li a {
+		display: block;
+	}
+	.title {
+		margin: 0;
+		color: rgb(var(--black));
+		line-height: 1;
+	}
+	.subtitle {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+	ul li a:hover h4,
+	ul li a:hover .date {
+		color: rgb(var(--accent));
+	}
+	ul a:hover img {
+		box-shadow: var(--box-shadow);
+	}
+	@media (max-width: 720px) {
+		ul {
+			gap: 0.5em;
+		}
+		ul li {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

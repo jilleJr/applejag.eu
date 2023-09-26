@@ -13,4 +13,14 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const pages = defineCollection({
+	// Type-check frontmatter using a schema
+	schema: z.object({
+		title: z.string(),
+		headTitle: z.string().optional(),
+		description: z.string(),
+		heroImage: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, pages };
