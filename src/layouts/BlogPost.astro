@@ -10,7 +10,7 @@ const { title, description, tags, pubDate, updatedDate, heroImage } =
 ---
 
 <ArticleLayout title={title} description={description} heroImage={heroImage}>
-	<div slot="subtitle">
+	<div slot="subtitle" class="my-4">
 		<div class="date">
 			<FormattedDate date={pubDate} />
 			{
@@ -22,13 +22,13 @@ const { title, description, tags, pubDate, updatedDate, heroImage } =
 			}
 		</div>
 		<div class="tags">
-			<ul>
+			<ul clas="list-style-none flex flex-row">
 				{
 					tags
 						? tags.sort().map((tag) => (
-								<li>
+								<li class="inline">
 									{" "}
-									<a href={`/blog/tags/${tag}/`}>#{tag}</a>
+									<a class="anchor mx-1" href={`/blog/tags/${tag}/`}>#{tag}</a>
 								</li>
 							))
 						: null
@@ -38,33 +38,3 @@ const { title, description, tags, pubDate, updatedDate, heroImage } =
 	</div>
 	<slot />
 </BaseLayout>
-
-<style>
-	.date {
-		color: rgb(var(--gray));
-	}
-	.tags {
-		margin-bottom: 0.5em;
-		color: rgb(var(--gray));
-	}
-	.tags ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
-	.tags ul li {
-		display: inline;
-		padding: 0.2em 0.2em;
-	}
-	.tags ul li a {
-		color: rgb(var(--gray));
-		text-decoration: none;
-	}
-	.tags ul li a:hover {
-		color: rgb(var(--gray));
-		text-decoration: underline;
-	}
-	.last-updated-on {
-		font-style: italic;
-	}
-</style>

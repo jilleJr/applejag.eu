@@ -36,10 +36,10 @@ Code forges:
 
 Social networks:
 
-- Mastodon: <a rel="me" href="https://javisst.space/@kalle">@kalle@javisst.space</a>
-- DEV: <a rel="me" href="https://dev.to/jillejr">jillejr</a>
-- Discord: <a rel="me" href="https://discord.com/users/158398273541898240">applejag</a>
-- LinkedIn: <a rel="me" href="https://www.linkedin.com/in/kallef8">kallef8</a>
+- Mastodon: [@kalle@javisst.space](https://javisst.space/@kalle)<!--rehype:rel=me-->
+- DEV: [jillejr](https://dev.to/jillejr)<!--rehype:rel=me-->
+- Discord: [applejag](https://discord.com/users/158398273541898240)<!--rehype:rel=me-->
+- LinkedIn: [kallef8](https://www.linkedin.com/in/kallef8)
 
 ## Names
 

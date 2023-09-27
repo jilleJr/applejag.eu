@@ -28,15 +28,15 @@ const posts = (await getCollection("blog")).sort(
 								src={post.data.heroImage}
 								alt=""
 							/>
-							<h4 class="title">{post.data.title}</h4>
+							<h4 class="h4 title">{post.data.title}</h4>
 						</a>
 						<p class="subtitle">
-							<FormattedDate date={post.data.pubDate} /> -
+							<FormattedDate date={post.data.pubDate} /> —
 							<span class="tags">
 								{post.data.tags.sort().map((tag) => (
 									<span>
 										{" "}
-										<a href={`/blog/tags/${tag}/`} class="tag">
+										<a href={`/blog/tags/${tag}/`} class="anchor">
 											#{tag}
 										</a>
 									</span>
@@ -84,29 +84,12 @@ const posts = (await getCollection("blog")).sort(
 	.post > a {
 		display: block;
 	}
-	.title {
-		margin: 0;
-		color: rgb(var(--black));
-		line-height: 1;
-	}
-	.subtitle {
-		margin: 0;
-		color: rgb(var(--gray));
-	}
 	.post > a:hover h4,
 	.post > a:hover .date {
 		color: rgb(var(--accent));
 	}
 	.post > a:hover img {
 		box-shadow: var(--box-shadow);
-	}
-	.tags a {
-		color: rgb(var(--gray));
-		text-decoration: none;
-	}
-	.tags a:hover {
-		color: rgb(var(--gray));
-		text-decoration: underline;
 	}
 	@media (max-width: 720px) {
 		ul {

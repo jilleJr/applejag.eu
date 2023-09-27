@@ -22,7 +22,6 @@ MD033:
   allowed_elements:
     - sub
     - sup
-    - a
 
 # MD036/no-emphasis-as-heading/no-emphasis-as-header - Emphasis used instead of a heading
 MD036: false

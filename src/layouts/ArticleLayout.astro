@@ -20,9 +20,9 @@ const { title, description, headTitle, heroImage } = Astro.props;
 					<HeroImage src={heroImage} />
 				)
 			}
-			<div class="prose">
+			<div class="container mx-auto">
 				<div class="title">
-					<h1>{title}</h1>
+					<h1 class="h1">{title}</h1>
 					<slot name="subtitle" />
 					<hr />
 				</div>
@@ -33,13 +33,6 @@ const { title, description, headTitle, heroImage } = Astro.props;
 </BaseLayout>
 
 <style>
-	.prose {
-		width: 720px;
-		max-width: calc(100% - 2em);
-		margin: auto;
-		padding: 1em;
-		color: rgb(var(--gray-dark));
-	}
 	.title {
 		margin-bottom: 1em;
 		padding: 1em 0;

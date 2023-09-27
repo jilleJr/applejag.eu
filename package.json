@@ -13,12 +13,20 @@
     "@astrojs/mdx": "^1.1.0",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/svelte": "^4.0.2",
+    "@astrojs/tailwind": "^5.0.0",
     "astro": "^3.1.2",
     "image-size": "^1.0.2",
-    "mime-types": "^2.1.35"
+    "mime-types": "^2.1.35",
+    "rehype-attr": "^2.1.4",
+    "rehype-class-names": "^1.0.14",
+    "svelte": "^4.2.1",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "@astrojs/language-server": "^2.3.3",
+    "@skeletonlabs/skeleton": "^2.2.0",
+    "@skeletonlabs/tw-plugin": "^0.2.1",
     "@types/mime-types": "^2.1.1"
   }
 }
