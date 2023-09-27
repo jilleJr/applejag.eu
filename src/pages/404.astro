@@ -4,13 +4,18 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 ---
 
 <ArticleLayout title="Not found" description="The page could not be found">
-	<div class="center">
-		<p>
-			The page you were looking for could not be found.
-		</p>
-		<p>
-			Try heading back to the <a href="/">start page</a>.
-		</p>
+	<div class="row">
+		<aside class="alert variant-filled-error max-w-md mx-auto rounded-lg">
+			<div class="alert-message">
+					<h3 class="h3">Page not found</h3>
+					<p>
+						The page you were looking for could not be found.
+					</p>
+					<p>
+						Try heading back to the <a class="anchor" href="/">start page</a>.
+					</p>
+			</div>
+		</aside>
 	</div>
 </ArticleLayout>
 
