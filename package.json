@@ -18,7 +18,7 @@
     "astro": "^3.1.2",
     "image-size": "^1.0.2",
     "mime-types": "^2.1.35",
-    "rehype-attr": "^2.1.4",
+    "rehype-attr": "^3.0.1",
     "rehype-class-names": "^1.0.14",
     "svelte": "^4.2.1",
     "tailwindcss": "^3.3.3"
