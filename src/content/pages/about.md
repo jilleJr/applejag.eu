@@ -25,14 +25,14 @@ Expect content related to the following areas:
 
 This blog was previously hosted at <https://blog.jillejr.tech>, but I was running a self-hosted version of [WriteFreely](https://writefreely.org/). The Fediverse integration was cool, but not that great. It also was a hassle to self-host.
 
-Now the blog is instead written in [Astro](https://astro.build), and hosted on [GitHub Pages](https://github.com/jilleJr/applejag.eu).
+Now the blog is instead written in [Astro](https://astro.build), and hosted on [GitHub Pages](https://github.com/applejag/applejag.eu).
 
 ## Find me online
 
 Code forges:
 
-- GitHub: <https://github.com/jilleJr>
-- GitLab: <https://gitlab.com/jilleJr> *(I rarely use GitLab though)*
+- GitHub: <https://github.com/applejag><!--rehype:rel=me--> *(was formerly <https://github.com/applejag>)*
+- GitLab: <https://gitlab.com/jilleJr><!--rehype:rel=me--> *(I rarely use GitLab though)*
 
 Social networks:
 
