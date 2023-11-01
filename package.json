@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@astrojs/language-server": "^2.4.1",
-    "@skeletonlabs/skeleton": "^2.3.0",
+    "@skeletonlabs/skeleton": "^2.4.0",
     "@skeletonlabs/tw-plugin": "^0.2.3",
     "@types/mime-types": "^2.1.3"
   }
