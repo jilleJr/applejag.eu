@@ -10,23 +10,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.5",
-    "@astrojs/rss": "^3.0.0",
+    "@astrojs/mdx": "^2.0.0",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/svelte": "^4.0.4",
-    "@astrojs/tailwind": "^5.0.2",
-    "astro": "^3.6.4",
+    "@astrojs/svelte": "^5.0.0",
+    "@astrojs/tailwind": "^5.0.3",
+    "astro": "^4.0.3",
     "image-size": "^1.0.2",
     "mime-types": "^2.1.35",
     "rehype-attr": "^3.0.3",
     "rehype-class-names": "^1.0.14",
     "svelte": "^4.2.8",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.6"
   },
   "devDependencies": {
     "@astrojs/language-server": "^2.5.2",
-    "@skeletonlabs/skeleton": "^2.5.1",
-    "@skeletonlabs/tw-plugin": "^0.2.4",
+    "@skeletonlabs/skeleton": "^2.6.0",
+    "@skeletonlabs/tw-plugin": "^0.3.0",
     "@types/mime-types": "^2.1.4"
   }
 }
