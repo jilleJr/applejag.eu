@@ -1,4 +1,6 @@
 ---
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import { SITE_TITLE } from "../consts";
@@ -24,19 +26,28 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link
-	rel="preload"
-	href="/fonts/atkinson-regular.woff"
-	as="font"
-	type="font/woff"
-	crossorigin
-/>
-<link
-	rel="preload"
-	href="/fonts/atkinson-bold.woff"
-	as="font"
-	type="font/woff"
-	crossorigin
+<AstroFont
+	config={[
+		{
+			src: [
+				{
+					weight: '700',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'atkinson-bold.woff')
+				},
+				{
+					weight: '400',
+					style: 'normal',
+					path: join(process.cwd(), 'public', 'fonts', 'atkinson-regular.woff')
+				},
+			],
+			preload: true,
+			display: "swap",
+			name: "Atkinson",
+			selector: "html",
+			fallback: "sans-serif",
+		},
+	]}
 />
 
 <!-- Canonical URL -->
