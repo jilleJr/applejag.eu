@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.3",
-    "@astrojs/rss": "^4.0.1",
+    "@astrojs/mdx": "^2.0.4",
+    "@astrojs/rss": "^4.0.2",
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.1.1",
+    "astro": "^4.1.2",
     "image-size": "^1.1.1",
     "mime-types": "^2.1.35",
     "rehype-attr": "^3.0.3",
@@ -24,7 +24,7 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@astrojs/language-server": "^2.5.5",
+    "@astrojs/language-server": "^2.6.2",
     "@skeletonlabs/skeleton": "^2.7.0",
     "@skeletonlabs/tw-plugin": "^0.3.1",
     "@types/mime-types": "^2.1.4"
