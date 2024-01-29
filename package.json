@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.5",
-    "@astrojs/rss": "^4.0.2",
+    "@astrojs/mdx": "^2.1.0",
+    "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.2.1",
+    "astro": "^4.2.6",
     "image-size": "^1.1.1",
     "mime-types": "^2.1.35",
     "rehype-attr": "^3.0.3",
