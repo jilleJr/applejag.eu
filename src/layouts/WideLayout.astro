@@ -11,13 +11,13 @@ const { title, description } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-	<main class="mx-auto">
+	<main class="mx-auto container">
 		<slot/>
 	</main>
 </BaseLayout>
 
 <style>
 	main {
-		width: 960px;
+		max-width: 960px;
 	}
 </style>
