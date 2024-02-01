@@ -41,3 +41,12 @@ pre.astro-code {
 	/*background: linear-gradient(120deg, #24292eff, #24292eaa) !important;*/
 	background-color: #24292e88 !important;
 }
+
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code,
+h5 > code,
+h6 > code {
+	font-size: unset !important;
+}
