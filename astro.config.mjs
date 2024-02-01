@@ -19,7 +19,6 @@ export default defineConfig({
 				h3: 'h3 my-8',
 				h4: 'h4 my-8',
 				h5: 'h5 my-8',
-				code: 'code break-words whitespace-break-spaces',
 				kbd: 'kbd',
 				blockquote: 'blockquote',
 				p: 'my-4',

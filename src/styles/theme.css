@@ -34,3 +34,11 @@ ul.ul {
 	list-style-position: inside;
 	margin-left: 1em;
 }
+
+pre.astro-code {
+	padding: 1em;
+	margin-bottom: 1em;
+	border-radius: 8px;
+	/*background: linear-gradient(120deg, #24292eff, #24292eaa) !important;*/
+	background-color: #24292e88 !important;
+}
