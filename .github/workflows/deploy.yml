@@ -25,14 +25,13 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
-        uses: withastro/action@v1
+        #uses: withastro/action@v1 # Broken due to NodeJS update
+        # Using fork from PR: https://github.com/withastro/action/pull/41
+        uses: LeadingMoominExpert/withastro-action@v2
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
