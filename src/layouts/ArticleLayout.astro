@@ -13,7 +13,7 @@ const { title, description, headTitle, heroImage } = Astro.props;
 ---
 
 <BaseLayout title={headTitle ?? title} description={description} image={heroImage}>
-	<main>
+	<main class="px-4">
 		<article>
 			{
 				heroImage && (
