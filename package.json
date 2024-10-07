@@ -12,10 +12,10 @@
   "dependencies": {
     "@astrojs/mdx": "^3.1.7",
     "@astrojs/rss": "^4.0.7",
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/sitemap": "^3.2.0",
     "@astrojs/svelte": "^5.7.1",
     "@astrojs/tailwind": "^5.1.1",
-    "astro": "^4.15.9",
+    "astro": "^4.15.11",
     "image-size": "^1.1.1",
     "mime-types": "^2.1.35",
     "rehype-attr": "^3.0.3",
@@ -24,7 +24,7 @@
     "tailwindcss": "^3.4.13"
   },
   "devDependencies": {
-    "@astrojs/language-server": "^2.14.2",
+    "@astrojs/language-server": "^2.15.0",
     "@skeletonlabs/skeleton": "^2.10.2",
     "@skeletonlabs/tw-plugin": "^0.4.0",
     "@types/mime-types": "^2.1.4"
